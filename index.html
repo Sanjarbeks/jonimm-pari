@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <title>PariRo'yimga💞</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Great Vibes', cursive;
+            background: url('background.jpg') no-repeat center center fixed;
+            background-size: contain;
+            color: red;
+            overflow: hidden;
+        }
+        .overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            z-index: 0;
+        }
+        .container {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            padding: 20px;
+            text-align: center;
+        }
+        .typing {
+            border-right: .1em solid red;
+            white-space: pre-wrap;
+            overflow: hidden;
+            font-size: 2.2em;
+            width: 100%;
+            max-width: 800px;
+            animation: typing 12s steps(80, end) forwards, blink .75s step-end infinite;
+        }
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        @keyframes blink {
+            50% { border-color: transparent }
+        }
+        .text-block {
+            margin-top: 20px;
+            font-size: 1.5em;
+            opacity: 0;
+            animation: fadein 3s ease-in-out 13s forwards, typingText 20s steps(200, end) 13s forwards;
+        }
+        @keyframes fadein {
+            to { opacity: 1 }
+        }
+        @keyframes typingText {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        .petals {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 2;
+        }
+        .petal {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: url('petal.png') no-repeat center center;
+            background-size: contain;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="petals" id="petals"></div>
+    <div class="container">
+        <div class="typing">PariRo'yimga💞</div>
+        <div class="text-block">
+            Senga bo‘lgan xumorim aldab<br>
+            Suratingga qarab ovundim.<br>
+            Bilsang yurak qilmoqda talab<br>
+            Bugun seni juda sog‘indim.<br><br>
+
+            Hasratimga dengizlar guvoh<br>
+            Osmondagi yulduzlar guvoh.<br>
+            Sog‘inishim bo‘lsa-da gunoh,<br>
+            Bugun seni juda sog‘indim.<br><br>
+
+            Ko‘rsam edi gul yuzlaringni<br>
+            Ma'yus kulgan ul ko‘zlaringni.<br>
+            Menga aytgan har so‘zlaringni<br>
+            Bugun seni juda sog‘indim.<br><br>
+
+            Sochlaringni uchirar shamol<br>
+            Kelarmi deb surarman hayol<br>
+            So‘zim tingla ey sohibjamol<br>
+            Bugun seni juda sog‘indim.
+        </div>
+        <audio autoplay loop>
+            <source src="music.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+    <script>
+        // Generate falling petals
+        const petalsContainer = document.getElementById("petals");
+        for (let i = 0; i < 30; i++) {
+            const petal = document.createElement("div");
+            petal.classList.add("petal");
+            petal.style.left = Math.random() * 100 + "vw";
+            petal.style.animationDuration = (5 + Math.random() * 5) + "s";
+            petal.style.animationDelay = Math.random() * 5 + "s";
+            petalsContainer.appendChild(petal);
+        }
+    </script>
+</body>
+</html>
